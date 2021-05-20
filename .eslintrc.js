@@ -30,6 +30,7 @@ module.exports = {
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "import/extensions": "off",
+    "react/prop-types": "off"
   },
   "settings": {
     "import/resolver": {
