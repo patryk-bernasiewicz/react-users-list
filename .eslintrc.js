@@ -37,6 +37,7 @@ module.exports = {
     ],
     'import/order': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'import/prefer-default-export': 'off',
   },
   settings: {
     'import/resolver': {

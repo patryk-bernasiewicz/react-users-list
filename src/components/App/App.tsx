@@ -1,24 +1,14 @@
-import type { FC } from 'react';
+import { FC, Suspense } from 'react';
+
+import { UsersList } from 'components/UsersList/UsersList';
+import { Heading } from 'components/Heading/Heading';
 
 const App: FC = () => (
-  <div className="App">
-    <header className="App-header">
-      <p>
-        Edit
-        {' '}
-        <code>src/App.js</code>
-        {' '}
-        and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
+  <div>
+    <Heading>Users List</Heading>
+    <Suspense fallback={<div>Loading...</div>}>
+      <UsersList />
+    </Suspense>
   </div>
 );
 
