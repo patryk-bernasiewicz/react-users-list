@@ -36,6 +36,7 @@ module.exports = {
       { allowSingleExtends: false },
     ],
     'import/order': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
   settings: {
     'import/resolver': {
