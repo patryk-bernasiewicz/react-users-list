@@ -8,6 +8,7 @@ const theme: DefaultTheme = {
     gray: '#dddddd',
     grayDark: '#565656',
     grayDarker: '#231f20',
+    ruby: '#a40e4c',
   },
 };
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { RecoilRoot } from 'recoil';
 
 import RootProvider from 'providers/RootProvider';
 import reportWebVitals from 'utils/reportWebVitals';
@@ -9,9 +8,7 @@ import App from 'components/App/App';
 ReactDOM.render(
   <React.StrictMode>
     <RootProvider>
-      <RecoilRoot>
-        <App />
-      </RecoilRoot>
+      <App />
     </RootProvider>
   </React.StrictMode>,
   document.getElementById('root'),

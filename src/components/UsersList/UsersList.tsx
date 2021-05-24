@@ -1,8 +1,8 @@
-import type { FC } from 'react';
+import { FC } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 
-import { usersListSelector } from 'store';
+import { filteredUsersSelector } from 'store';
 
 const List = styled.ol`
   padding: 0;
@@ -32,11 +32,11 @@ const UserHandler = styled.span`
 `;
 
 const UsersList: FC = () => {
-  const users = useRecoilValue(usersListSelector);
+  const users = useRecoilValue(filteredUsersSelector);
 
   return (
-    <List>
-      {users.map((user) => (
+    <List data-cy="users-list">
+      {users && users.map((user) => (
         <Element key={user.id}>
           <UserName>
             {user.name}

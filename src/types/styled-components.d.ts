@@ -6,10 +6,11 @@ declare module 'styled-components' {
     color: {
       white: string;
       turquoise: string;
-      grayLight: string; // dadbdd
-      gray: string; // dddddd
-      grayDark: string; // 565656
-      grayDarker: string; // 231f20
+      grayLight: string;
+      gray: string;
+      grayDark: string;
+      grayDarker: string;
+      ruby: string;
     }
   }
 }

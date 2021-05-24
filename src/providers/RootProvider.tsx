@@ -1,10 +1,14 @@
 import type { FC } from 'react';
+import { RecoilRoot } from 'recoil';
+
 import GlobalStyleProvider from './GlobalStyleProvider';
 
 const RootProvider: FC = ({ children }) => (
-  <GlobalStyleProvider>
-    {children}
-  </GlobalStyleProvider>
+  <RecoilRoot>
+    <GlobalStyleProvider>
+      {children}
+    </GlobalStyleProvider>
+  </RecoilRoot>
 );
 
 export default RootProvider;
