@@ -28,6 +28,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
   }
 
+  #root {
+    width: 100%;
+    max-width: 400px;
+  }
 `;
 
 const GlobalStyleProvider: FC = ({ children }) => (

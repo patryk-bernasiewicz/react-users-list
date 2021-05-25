@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, Suspense } from 'react';
+import { FC, Suspense } from 'react';
 import styled from 'styled-components';
 
 import { ErrorBoundary } from 'components/ErrorBoundary/ErrorBoundary';
@@ -6,6 +6,7 @@ import { UsersList } from 'components/UsersList/UsersList';
 import { Heading } from 'components/Heading/Heading';
 import { useRecoilState } from 'recoil';
 import { searchState } from 'store';
+import { Search } from 'components/Search/Search';
 
 
 const Container = styled.div`
@@ -17,18 +18,17 @@ const Container = styled.div`
 const App: FC = () => {
   const [search, setSearch] = useRecoilState(searchState);
 
-  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value);
-  };
-
   return (
     <ErrorBoundary>
-      <input
-        onChange={handleSearchChange}
-        value={search}
-      />
-      <Heading data-cy="main-heading">Users List</Heading>
       <Container data-cy="container">
+        <Search
+          id="search"
+          label="Search by user name..."
+          onChange={setSearch}
+          value={search}
+          data-cy="search"
+        />
+        <Heading data-cy="main-heading">Users List</Heading>
         <Suspense fallback={<div data-cy="loading">Loading...</div>}>
           <UsersList />
         </Suspense>

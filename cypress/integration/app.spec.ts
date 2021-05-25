@@ -18,6 +18,16 @@ describe('rendering basic elements', () => {
   });
 
   it('displays "Loading..." before data is fetched', () => {
+    cy.intercept({
+        method: 'GET',
+        url: USERS_URL,
+      }, (req) => {
+        req.reply({
+          delay: 500,
+        })
+      })
+      .as('getDataFirst');
+
     cy.visit('/');
     cy.get('[data-cy="loading"]').should('exist');
   });
@@ -37,6 +47,22 @@ describe('users list', () => {
       const items = interception.response.body;
       cy.get('[data-cy="users-list"]').children().should('have.length', items.length);
       cy.get('[data-cy="users-list"]').children().first().contains(items[0].name);
+    });
+  });
+
+  it('filters results on search input', () => {
+    cy.intercept({
+      method: 'GET',
+      url: USERS_URL,
+    }, {
+      fixture: 'users.json',
+    })
+    .as('getDataFirst');
+
+    cy.visit('/');
+    cy.wait('@getDataFirst').then(() => {
+      cy.get('[data-cy="search"]').type('Lorem').should('have.value', 'Lorem');
+      cy.get('[data-cy="users-list"]').children().should('have.length', 1);
     });
   });
 });
