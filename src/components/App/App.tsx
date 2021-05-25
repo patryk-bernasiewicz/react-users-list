@@ -15,6 +15,10 @@ const Container = styled.div`
   max-width: 400px;
 `;
 
+const ListWrapper = styled.div`
+  min-height: 280px;
+`;
+
 const App: FC = () => {
   const [search, setSearch] = useRecoilState(searchState);
 
@@ -29,9 +33,11 @@ const App: FC = () => {
           data-cy="search"
         />
         <Heading data-cy="main-heading">Users List</Heading>
-        <Suspense fallback={<div data-cy="loading">Loading...</div>}>
-          <UsersList />
-        </Suspense>
+        <ListWrapper>
+          <Suspense fallback={<div data-cy="loading">Loading...</div>}>
+            <UsersList />
+          </Suspense>
+        </ListWrapper>
       </Container>
     </ErrorBoundary>
   );
